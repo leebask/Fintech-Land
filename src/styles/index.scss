@@ -1,0 +1,310 @@
+@forward './varibles';
+@forward './breakpoint';
+@use './varibles' as *;
+@use './breakpoint' as *;
+
+* {
+  outline: none;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+//Override
+
+body {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.main__content {
+  padding: 15px;
+
+  @include lg {
+    padding: 10px;
+  }
+}
+
+.itemHashtag {
+  color: #337ab7;
+  font-weight: bold;
+}
+
+input:disabled {
+  background-color: #eee;
+}
+
+.scroll__to__top {
+  position: fixed !important;
+  bottom: 60px !important;
+  right: 30px !important;
+  background-color: #35404f !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  &:hover {
+    background-color: #414c5c !important;
+  }
+  @include sm {
+    right: 15px !important;
+  }
+}
+
+/* Scroll bar css */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Override css*/
+
+.chakra-icon {
+  color: gray !important;
+}
+
+.chakra-input,
+.chakra-textarea,
+.chakra-checkbox__control,
+.chakra-numberinput__field {
+  border: 1px solid #bbb !important;
+}
+
+.chakra-checkbox__control {
+  box-shadow: none !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+hr {
+  margin-top: 0px !important;
+}
+
+.chakra-form-control {
+  padding: 5px 0 !important;
+}
+
+.chakra-form__label {
+  margin-bottom: 2px !important;
+}
+
+.chakra-form__error-message {
+  margin-top: 2px !important;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.react-datepicker {
+  display: flex !important;
+}
+
+canvas {
+  height: 500px;
+  max-height: 500px !important;
+}
+
+#chakra-modal-drawer-leftmenu {
+  width: 220px !important;
+}
+
+.chakra-modal__close-btn {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.chakra-menu__menu-list {
+  box-shadow: $box-shadow !important;
+}
+
+.chakra-form__required-indicator {
+  margin-inline-start: 0 !important;
+}
+
+*[aria-invalid='true'] {
+  box-shadow: 0 0 0 1px #e53e3e !important;
+}
+
+div[data-value] {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.container_all {
+  background: #ffffffff !important;
+  padding: 46px;
+  box-shadow: inset 2px 3px 8px #b3b3b3, inset -97px -42px 0px #ffffff;
+  // height: 100% !important;
+  overflow: scroll;
+}
+thead > tr > th {
+  padding: 20px 4px 10px 4px !important;
+}
+tbody > tr > td {
+  padding: 0px 6px !important;
+
+  > p {
+    padding: 0px;
+    font-size: 15px !important;
+    white-space: nowrap;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  > span {
+    font-size: 14px !important;
+  }
+}
+
+.inputfigma {
+  border-radius: 10px !important;
+  border: 1px solid #ececec !important;
+  background: #f9f9f9 !important;
+}
+.mobileScreen {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+

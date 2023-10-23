@@ -1,0 +1,12 @@
+node_modules
+.github
+.git
+.idea
+.vscode
+Dockerfile
+.gitignore
+.dockerignore
+.drone.yml
+.env
+.env.example
+package-lock.json

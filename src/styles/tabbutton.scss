@@ -1,0 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/digital-numbers');
+.tab_btn {
+  width: auto !important;
+  display: flex;
+  width: 117px;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  color: #393939;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.269px;
+  cursor: pointer;
+}
+.tab_action {
+  color: #fff !important;
+  border-radius: 10px;
+  background: #3b22a1;
+  box-shadow: 0px 2px 4px 0px rgba(59, 34, 161, 0.15),
+    0px 1px 2px 0px rgba(59, 34, 161, 0.15);
+}

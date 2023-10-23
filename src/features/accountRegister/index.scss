@@ -1,0 +1,45 @@
+.RegisterAllMain {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .RegisterAll {
+    height: 100%;
+    max-width: 600px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('@/assets/images/logologin1.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    .text1 {
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 42px */
+      letter-spacing: -0.32px;
+    }
+    .texthave {
+      color: #393939;
+      text-align: center;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px; /* 215.385% */
+      letter-spacing: -0.165px;
+    }
+    .textres {
+      color: #3b22a1;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: -0.165px;
+      cursor: pointer;
+    }
+  }
+}

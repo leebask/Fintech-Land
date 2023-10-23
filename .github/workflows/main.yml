@@ -1,0 +1,60 @@
+name: Build and Publish
+
+on:
+  # run it on push to the default repository branch
+  push:
+    branches: [main]
+
+jobs:
+  # define job to build and publish docker image
+  build-and-push-docker-image:
+    name: Build Docker image and push to repositories
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-latest
+
+    # steps to perform in job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # setup Docker buld action
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: hoanghao11
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      
+      - name: Build image and push to Docker Hub and GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./
+          # Note: tags has to be all lower-case
+          tags: |
+            hoanghao11/finhteck-fe:staging
+          # build on feature branches, push only on main branch
+          push: ${{ github.ref == 'refs/heads/main' }}
+
+  deploy-container:
+    name: deploy
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-latest
+    needs: build-and-push-docker-image
+    # steps to perform in job
+    steps:
+      - name: redeploy service
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host:  ${{ secrets.SSH_SERVER_HOST }}
+          port:  ${{ secrets.SSH_SERVER_PORT }}
+          username:  ${{ secrets.SSH_SERVER_USERNAME }}
+          password: ${{ secrets.SSH_SERVER_PASSWORD }}
+          script: |
+            docker stop website_finhteck
+            docker rm website_finhteck
+            docker rmi hoanghao11/finhteck-fe:staging
+            cd finhteck && docker compose up -d
